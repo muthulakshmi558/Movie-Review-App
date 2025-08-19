@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Latest Reviews</h2>
+<div class="row">
+    {% for review in reviews %}
+    <div class="col-md-6">
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ review.movie }} ⭐ {{ review.rating }}/5</h5>
+                <p class="card-text">{{ review.comment }}</p>
+                <small>By {{ review.user.username }}</small>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <p>No reviews yet. Be the first to add one!</p>
+    {% endfor %}
+</div>
+{% endblock %}
