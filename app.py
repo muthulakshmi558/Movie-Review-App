@@ -87,7 +87,9 @@ def add_review():
 
     return render_template("add_review.html")
 
+# ---------- CREATE TABLES ON STARTUP ----------
+with app.app_context():
+    db.create_all()
+
 if __name__ == "__main__":
-    with app.app_context():
-        db.create_all()
     app.run(debug=True)
